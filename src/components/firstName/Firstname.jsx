@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux';
 
 function Firstname() {
 
-    const name = useSelector( (state) => {state.user.firstName} )
+    const name = useSelector( (state) => state.user.firstName )
 
     return (
         <div className='showFirstname'>
