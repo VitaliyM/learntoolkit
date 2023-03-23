@@ -1,0 +1,24 @@
+.usersBlock {
+    outline: 2px solid;
+    width: 400px;
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.usersFirstname,
+.usersSecondname {
+    width: 90%;
+    height: 30px;
+}
+
+.showUsersName {
+    display: flex;
+    gap: 70px;
+}
+
+.lastName {
+    text-decoration: underline;
+}
