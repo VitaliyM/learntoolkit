@@ -9,7 +9,7 @@
 }
 
 .usersFirstname,
-.usersSecondname {
+.usersLastname {
     width: 90%;
     height: 30px;
 }
@@ -17,8 +17,4 @@
 .showUsersName {
     display: flex;
     gap: 70px;
-}
-
-.lastName {
-    text-decoration: underline;
 }

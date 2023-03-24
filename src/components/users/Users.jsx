@@ -2,9 +2,10 @@ import React from 'react';
 import './users.css';
 
 import { useDispatch } from 'react-redux';
-import { setFirstname } from '../../features/user/userSlice';
+import { setFirstname, setLastname } from '../../features/user/userSlice';
 
 import Firstname from '../firstName/Firstname';
+import Lastname from '../lastName/Lastname';
 
 
 function Users() {
@@ -15,20 +16,21 @@ function Users() {
         <div className='usersBlock'>
             <h1>Redux Toolkit State Change</h1>
             <input type="text"
-                    placeholder='First name'
-                    className='usersFirstname'
-                    onChange={(e)=>{dispatch(setFirstname(e.target.value))}}
-                    />
-            <input type="text" placeholder='Second name' className='usersSecondname'/>
+                placeholder='First name'
+                className='usersFirstname'
+                onChange={(e) => { dispatch(setFirstname(e.target.value)) }}
+            />
+            <input type="text"
+                placeholder='Last name'
+                className='usersLastname'
+                onChange={(e) => { dispatch(setLastname(e.target.value)) }}
+            />
 
             <div className='showUsersName'>
-                <Firstname />
 
-                <div className='showLastname'>
-                    <h2>Last name:</h2>
-                    <span className='lastName'>Last name</span>
-                </div>
-                
+                <Firstname />
+                <Lastname />
+
             </div>
         </div>
     )

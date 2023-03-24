@@ -4,8 +4,8 @@ import { createSlice } from "@reduxjs/toolkit";
 
 // Начальное состояние
 const  initialState = {
-    firstName: '',
-    lastName: '',
+    firstName: ' ',
+    lastName: ' ',
 };
 
 
@@ -16,9 +16,13 @@ export const userSlice = createSlice({
         setFirstname: (state, action) => {
             state.firstName = action.payload
         },
+
+        setLastname: (state, action) => {
+            state.lastName = action.payload
+        },
     },
 })
 
 
-export const { setFirstname } = userSlice.actions;
+export const { setFirstname, setLastname } = userSlice.actions;
 export default userSlice.reducer;
