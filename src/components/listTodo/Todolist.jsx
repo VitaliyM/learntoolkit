@@ -1,13 +1,35 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { addTodo } from '../../features/todolist/todoSlice';
 import './todolist.css';
 
 
 const Todolist = () => {
+
+    const dispatch = useDispatch();
+
+    const [todoValue, setTodoValue] = useState(' ');
+
+    const addTodoHandler = () => {
+        const todo = {
+            id: new Date(),
+            text: todoValue,
+            completed: false,
+        }
+        dispatch(addTodo(todo));
+        setTodoValue('');
+    }
+
   return (
     <div className='todoBlock'>
         <h1 className='todoListHeader'>Toollkit Todo List</h1>
         <div className='todoInputBlock'>
-            <input type="text" placeholder='Type something...' className='todoInput'/>
+            <input type="text"
+                value={todoValue}
+                placeholder='Type something...'
+                className='todoInput'
+                onChange={(e)=>setTodoValue(e.target.value)}
+                />
             <button type="submit" className='todoSubmit'>Submit</button>
         </div>
         <div className='todoListBlock'>
