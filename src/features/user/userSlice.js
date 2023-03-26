@@ -1,4 +1,4 @@
-// Отвечает за инициализацию стейта в наш стор
+// Часть тулкита, которая отвечает за инициализацию стейта в наш стор
 // и за все функции, которые связаны с этим стейтом
 import { createSlice } from "@reduxjs/toolkit";
 
@@ -14,7 +14,7 @@ export const userSlice = createSlice({
     initialState,
     reducers: {
         setFirstname: (state, action) => {
-            state.firstName = action.payload
+            state.firstName = action.payload  // Только изменение состояния!!!
         },
 
         setLastname: (state, action) => {
