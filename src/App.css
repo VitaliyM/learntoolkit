@@ -7,3 +7,7 @@
 body {
   background: lightskyblue;
 }
+
+.App {
+  display: flex;
+}
