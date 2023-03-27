@@ -20,25 +20,28 @@ const Todolist = () => {
         setTodoValue('');
     }
 
-  return (
-    <div className='todoBlock'>
-        <h1 className='todoListHeader'>Toollkit Todo List</h1>
-        <div className='todoInputBlock'>
-            <input type="text"
-                value={todoValue}
-                placeholder='Type something...'
-                className='todoInput'
-                onChange={(e)=>setTodoValue(e.target.value)}
+    return (
+        <div className='todoBlock'>
+            <h1 className='todoListHeader'>Toollkit Todo List</h1>
+            <div className='todoInputBlock'>
+                <input type="text"
+                    value={todoValue}
+                    placeholder='Type something...'
+                    className='todoInput'
+                    onChange={(e) => setTodoValue(e.target.value)}
                 />
-            <button type="submit" className='todoSubmit'>Submit</button>
+                <button type="submit"
+                    className='todoSubmit'
+                    onClick={() => { addTodoHandler() }}
+                >Submit</button>
+            </div>
+            <div className='todoListBlock'>
+                <button className='todoComplete'>Complete</button>
+                <div className='todoText'>Todo text</div>
+                <button className='todoDelete'>Delete</button>
+            </div>
         </div>
-        <div className='todoListBlock'>
-            <button className='todoComplete'>Complete</button>
-            <div className='todoText'>Todo text</div>
-            <button className='todoDelete'>Delete</button>
-        </div>
-    </div>
-  )
+    )
 }
 
 export default Todolist
