@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { addTodo } from '../../features/todolist/todoSlice';
+import { addTodo, toggleCompletedTodo } from '../../features/todolist/todoSlice';
 import './todolist.css';
 
 
@@ -9,7 +9,6 @@ const Todolist = () => {
     const dispatch = useDispatch();
 
     const [todoValue, setTodoValue] = useState(' ');
-
     const addTodoHandler = () => {
         const todo = {
             id: new Date(),
@@ -18,9 +17,18 @@ const Todolist = () => {
         }
         dispatch(addTodo(todo));
         setTodoValue('');
-    }
+    };
 
     const todos = useSelector((state) => state.todo.todos);
+
+
+    const toggleTodoHandler = (id) => {
+        dispatch(toggleCompletedTodo(id));
+        let crossText = document.getElementById(id);
+        crossText.classList.contains('todoTextCompleted') ? 
+            crossText.classList.remove('todoTextCompleted') : 
+            crossText.classList.add('todoTextCompleted');
+    }
 
     return (
         <div className='todoBlock'>
@@ -41,17 +49,17 @@ const Todolist = () => {
             {
                 todos?.map((todo) => (
                     <div className='todoListBlock' key={todo.id}>
-                        <button className='todoComplete'>Complete</button>
-                        <div className='todoText'>{todo.text}</div>
+                        <button
+                            className='todoComplete'
+                            onClick={() => toggleTodoHandler(todo.id)}
+                        >Complete</button>
+
+                        <div className='todoText' id={todo.id}>{todo.text}</div>
+                        
                         <button className='todoDelete'>Delete</button>
                     </div>
                 ))
             }
-            <div className='todoListBlock'>
-                <button className='todoComplete'>Complete</button>
-                <div className='todoText'>Todo text</div>
-                <button className='todoDelete'>Delete</button>
-            </div>
         </div>
     )
 }

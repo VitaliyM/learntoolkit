@@ -53,6 +53,10 @@
     line-height: 30px;
 }
 
+.todoTextCompleted {
+    text-decoration: line-through 2px crimson;
+}
+
 .todoDelete {
     border: none;
     background: red;
