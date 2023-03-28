@@ -1,7 +1,8 @@
 .usersBlock {
     outline: 2px solid;
     width: 400px;
-    margin: 10px;
+    height: 180px;
+    margin: 10px 10px 0 10px;
     display: flex;
     flex-direction: column;
     align-items: center;

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { addTodo } from '../../features/todolist/todoSlice';
 import './todolist.css';
 
@@ -20,6 +20,8 @@ const Todolist = () => {
         setTodoValue('');
     }
 
+    const todos = useSelector((state) => state.todo.todos);
+
     return (
         <div className='todoBlock'>
             <h1 className='todoListHeader'>Toollkit Todo List</h1>
@@ -35,6 +37,16 @@ const Todolist = () => {
                     onClick={() => { addTodoHandler() }}
                 >Submit</button>
             </div>
+
+            {
+                todos?.map((todo) => (
+                    <div className='todoListBlock' key={todo.id}>
+                        <button className='todoComplete'>Complete</button>
+                        <div className='todoText'>{todo.text}</div>
+                        <button className='todoDelete'>Delete</button>
+                    </div>
+                ))
+            }
             <div className='todoListBlock'>
                 <button className='todoComplete'>Complete</button>
                 <div className='todoText'>Todo text</div>
