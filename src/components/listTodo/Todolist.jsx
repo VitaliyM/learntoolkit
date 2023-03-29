@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { addTodo, toggleCompletedTodo } from '../../features/todolist/todoSlice';
+import { addTodo, toggleCompletedTodo, removeTodo } from '../../features/todolist/todoSlice';
 import './todolist.css';
 
 
@@ -25,9 +25,13 @@ const Todolist = () => {
     const toggleTodoHandler = (id) => {
         dispatch(toggleCompletedTodo(id));
         let crossText = document.getElementById(id);
-        crossText.classList.contains('todoTextCompleted') ? 
-            crossText.classList.remove('todoTextCompleted') : 
+        crossText.classList.contains('todoTextCompleted') ?
+            crossText.classList.remove('todoTextCompleted') :
             crossText.classList.add('todoTextCompleted');
+    }
+
+    const removeTodoHandler = (id) => {
+        dispatch(removeTodo(id));
     }
 
     return (
@@ -55,8 +59,11 @@ const Todolist = () => {
                         >Complete</button>
 
                         <div className='todoText' id={todo.id}>{todo.text}</div>
-                        
-                        <button className='todoDelete'>Delete</button>
+
+                        <button
+                            className='todoDelete'
+                            onClick={() => removeTodoHandler(todo.id)}
+                        >Delete</button>
                     </div>
                 ))
             }
