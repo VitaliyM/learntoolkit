@@ -1,0 +1,32 @@
+.postsBlock {
+    outline: 2px solid;
+    margin-left: 20px;
+    margin-top: 10px;
+    padding: 0 10px 0 15px;
+}
+
+.inputBlock {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.getPostsBtn {
+    background: lightgreen;
+    width: 100px;
+    height: 30px;
+    cursor: pointer;
+}
+
+.inputPostTitle {
+    background: lightsteelblue;
+    width: 85%;
+    height: 30px;
+    padding-left: 10px;
+    color: #ffffff;
+}
+
+.inputPostTitle::placeholder {
+    color: #ffffff;
+}

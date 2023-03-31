@@ -11,8 +11,9 @@ const initialState = {
 
 export const getPosts = createAsyncThunk(
     'posts/getPosts',
-    async (_, { rejectWithValue }) => {
-        const res = await axios.get('https://jsonplaceholder.typicode.com/posts');
+    async (_, { rejectWithValue, dispatch }) => {
+        const result = await axios.get('https://jsonplaceholder.typicode.com/posts');
+        dispatch(setPosts(result.data));
     })
 
 export const postSlice = createSlice({
@@ -22,7 +23,12 @@ export const postSlice = createSlice({
         setPosts: (state, action) => {
             state.posts = action.payload;
         }
-    }
+    },
+    extraReducers: {
+        [getPosts.fulfilled]: () => console.log('fullfiled'),
+        [getPosts.pending]: () => console.log('pending'),
+        [getPosts.rejected]: () => console.log('rejected'),
+    },
 })
 
 export const { setPosts } = postSlice.actions;
@@ -30,3 +36,6 @@ export default postSlice.reducer;
 
 
 // https://jsonplaceholder.typicode.com/posts
+
+
+//  1:01
