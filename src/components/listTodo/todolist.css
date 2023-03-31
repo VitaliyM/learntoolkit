@@ -1,6 +1,8 @@
 .todoBlock {
     outline: 2px solid;
     width: 400px;
+    min-height: 180px;
+    height: fit-content;
     margin-top: 10px;
     margin-left: 20px;
     padding-bottom: 10px;

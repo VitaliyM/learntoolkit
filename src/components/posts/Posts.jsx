@@ -12,20 +12,19 @@ const Posts = () => {
     return (
         <div className='postsBlock'>
             <h1 className='postsBlockHeader'>Redux Toolkit Async Thunk</h1>
-            <form className='inputBlock'>
-                <input
-                    type="button"
-                    value="Get posts"
-                    className='getPostsBtn'
-                    onClick={ () => dispatch(getPosts()) }
-
-                    />
-                <input
-                    type="text"
-                    ame="Post title"
-                    placeholder='Post title'
-                    className='inputPostTitle' />
-            </form>
+            <button
+                type="submit"
+                value="Get posts"
+                className='getPostsBtn'
+                onClick={() => dispatch(getPosts())}
+            >Get posts</button>
+            <div className='showPostTitle'>
+                {
+                    posts?.map( (post) => (
+                        <div className='postLine'>&#8658; {post.title}</div>
+                    ) )
+                }
+            </div>
         </div>
     )
 }
